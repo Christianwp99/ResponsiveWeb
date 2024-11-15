@@ -1,0 +1,418 @@
+/*Farver*/
+:root{
+    --beige: #dad0c0;
+    --Mørkerød: #331316;
+    --Sort:#000000;
+    --Gul: #f7be05;
+    --Rød: #c00c1e;
+    --Hvid: #ffffff;
+}
+
+/*Fonts*/
+.dm-serif-display-regular {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/*flag*/
+.flag{
+    height: 50px; /* flagets størelse */
+    width: auto;
+    margin-top: 15px;
+    
+
+  }
+  
+/*logo*/
+.logo{
+ 
+    height: 65px; /* flagets størelse */
+    width: auto;
+  }
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+}
+
+/*baggrundsbillede*/
+.background-section {
+    background-image: url(/images/baggrund_booking.webp);
+    background-size: cover;
+    background-position: center;
+    background-color: var(--beige);
+    background-repeat: no-repeat;
+    height: 97vh; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Hvid); /* Text color for contrast */
+    text-align: center;
+    opacity: 80%;
+}
+
+
+body {
+    font-family: "DM Serif Display", serif;
+    text-transform: none;
+    text-decoration: none;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;  
+    background: var(--beige);
+    top:0;
+    left:0;
+    right:0;
+    padding: 10px 7%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    gap: 10%;
+}
+
+header .logo {
+    font-weight: bolder;
+    font-size: 25px;
+    color: var(--Mørkerød);
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+header .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 18px;
+    color: var(--Mørkerød);
+    display: block;
+}
+
+header .navbar ul li a:hover {
+    background:var(--Mørkerød);
+    color: #fff;
+}
+
+header .navbar ul li ul {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: var(--beige);
+    display: none;
+}
+
+header .navbar ul li ul li {
+    width: 100%;
+    border-top: 1px solid var(--Mørkerød);
+}
+
+header .navbar ul li ul li ul {
+    left: 200px;
+    top:0;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul {
+    display: block;
+}
+
+#menu-bar {
+    display: none;
+}
+
+header label {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+}
+
+/*Tablet størrelse*/
+@media(max-width:991px){
+    header{
+        padding: 20px;
+    }
+    
+    header label {
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left:0;
+        right:0;
+        background: var(--Hvid);
+        border-top: 1px solid var(--Mørkerød);
+        display: none;  
+    }
+
+    header .navbar ul li {
+        width: 100%;
+    }
+
+    header .navbar ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    header .navbar ul li ul li {
+        background: var(--Hvid);
+    }
+
+    header .navbar ul li ul li ul {
+        width: 100%;
+        left:0;
+    }
+
+    #menu-bar:checked ~ .navbar {
+        display: block;
+    }
+    /* Gør siden responsiv og nulstil standardmargener */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    /* Stil for navigation */
+    nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Gennemsigtig baggrund for menu */
+    color: white;
+    z-index: 10;
+    }
+
+    nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    }
+
+    nav ul li {
+    margin: 0 15px;
+    }
+
+    nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    }
+}
+
+/* Booking */
+.booking-container{
+    font-family: "DM Serif Display", serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 200%;
+    color: var(--Mørkerød); 
+    background-color: var(--beige);
+    position: absolute; /* Gør tekstboksen absolut positioneret */
+    top: 50%; /* Justerer placeringen - fx midt i billedet */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerer tekstboksen */
+    width: 40%; /* Juster bredde efter behov */
+    padding: 5px;
+    border: 1px solid var(--Mørkerød); /* Kant omkring boksen */
+    text-align: center;
+    opacity: 90%;
+}
+
+
+
+.calendar-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.day-names, .date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* Styling af ugedagene */
+.day-names div {
+    font-weight: bold;
+    color: var(--Mørkerød);
+}
+
+/* Styling af datoer */
+.date {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--Mørkerød);
+    color: var(--Hvid);
+
+}
+
+/* Styling af tilgængelige dage */
+.date.available {
+    background-color: var(--Mørkerød);
+    cursor: pointer;
+}
+ 
+/* Styling af tilgængelige dage (hover) */
+.date.available:hover {
+    background-color: var(--Rød);
+}
+
+/* Styling for selected dates */
+.date.selected {
+    background-color: green;
+    color: #fff;
+}
+
+/* Disabled date styling */
+.date.disabled {
+    color: #ccc;
+    background-color: #f4f4f4;
+    cursor: not-allowed;
+}
+
+.overlay-button {
+    font-family: "DM Serif Display", serif;
+    font-weight: 200;
+    font-style: normal;
+    position: absolute; /* Gør knappen absolut positioneret */
+    top: 92%; /* Justerer placeringen - fx midt i billedet */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerer knappen */
+    padding: 10px 20px;
+    background-color: var(--Rød); /* Baggrundsfarve til knappen */
+    color: var(--Hvid); /* Hvid tekst */
+    border: none;
+    border-radius: 5px; /* Afrundede hjørner */
+    cursor: pointer;
+    font-size: 80%;
+    transition: background-color 0.3s ease; /* Gør det pænere ved hover */
+}
+
+    
+footer{
+    background-color: var(--beige);
+    color: var(--Mørkerød);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.Facebook{
+    width: 30px;
+    height: auto;
+}
+
+.instagram{
+    width: 30px;
+    height: auto;
+}
+
+/* telefonstørrelse */
+@media (max-width: 480px){
+
+    /* Booking */
+.booking-container{
+    font-family: "DM Serif Display", serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 120%;
+    color: var(--Mørkerød); 
+    background-color: var(--beige);
+    position: absolute; /* Gør tekstboksen absolut positioneret */
+    top: 50%; /* Justerer placeringen - fx midt i billedet */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerer tekstboksen */
+    width: 90%; /* Juster bredde efter behov */
+    padding: 5px;
+    border: 1px solid var(--Mørkerød); /* Kant omkring boksen */
+    text-align: center;
+    opacity: 90%;
+}
+.calendar-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+/*book knappen*/
+.overlay-button {
+    font-family: "DM Serif Display", serif;
+    font-weight: 200;
+    font-style: normal;
+    position: absolute; /* Gør knappen absolut positioneret */
+    margin-top: -20%; /* Justerer placeringen - fx midt i billedet */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerer knappen */
+    padding: 10px 20px;
+    background-color: var(--Rød); /* Baggrundsfarve til knappen */
+    color: var(--Hvid); /* Hvid tekst */
+    border: none;
+    border-radius: 5px; /* Afrundede hjørner */
+    cursor: pointer;
+    font-size: 170%;
+    transition: background-color 0.3s ease; /* Gør det pænere ved hover */
+}
+
+
+   
+
+    header .navbar ul {
+        list-style: none;
+        display: block;
+        gap: 15px;
+        text-align: center;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    .flag{
+        height: 70px; /* flagets størelse */
+        width: auto;
+        margin-top: 15px;
+      }
+
+    header label {
+        text-align: center;
+    }
+
+    .adresse{
+        justify-content: center;
+        display: block;
+    }
+
+#menu-bar{
+ 
+    align-items: center;
+    font-size: xx-large;
+   
+} 
+footer{
+        font-size: smaller;
+    }
+}
+
